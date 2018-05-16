@@ -1,0 +1,37 @@
+body {
+	background-color: blue;
+	margin-top: 50px;
+}
+.tableColumnHeader,
+.tableCell {
+	border-width: 1px;
+	border-color: black; 
+	border-style: solid;
+	text-align: center;
+	font-family: Georgia, Times, Times New Roman, serif;
+}
+.tableColumnHeader {
+	font-size: 2em;
+}
+
+.invisible {
+	display: none;
+}
+
+main {
+	background-color: aliceblue;
+	padding: 20px;
+}
+section {
+	background-color: aquamarine;
+	padding: 20px;
+}
+header {
+	background-color: beige;
+	text-align: center;
+}
+footer {
+	background-color: black;
+	color: white;
+	text-align: center;
+}
