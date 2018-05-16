@@ -41,6 +41,7 @@ $(document).ready(function() {
 	];
 	var tableInMain = true;
 	function tableInitialize (element) {
+		console.log('table initialize called on ', element);
 		var companionTable = $("<table style='width:100%'>");
 		var tableHeader= $("<tr>");
 		var firstName = $("<th>")
@@ -50,7 +51,6 @@ $(document).ready(function() {
 		var home = $("<th>")
 		home.text("Home").addClass('tableColumnHeader').appendTo(tableHeader);
 		tableHeader.appendTo(companionTable);
-		companionTable.appendTo(element);
 		companions.forEach(function(companion) {
 			var first_name = companion.first_name;
 			var last_name = companion.last_name;
@@ -64,8 +64,21 @@ $(document).ready(function() {
 			home.text(companion.home).addClass('tableCell').appendTo(tableRow);
 			tableRow.appendTo(companionTable);
 		})
+		companionTable.appendTo(element);
 
 	}
 	tableInitialize("#mainTableArea");
-
+	$("#btnMain").on("click", function() {
+		$("#sectionTableArea").empty();
+		$("#btnSection").removeClass("invisible");
+		$("#btnMain").addClass("invisible");
+		tableInitialize("#mainTableArea")
+	});
+	$("#btnSection").on("click", function() {
+		console.log("section button clicked")
+		$("#mainTableArea").empty();
+		$("#btnSection").addClass("invisible");
+		$("#btnMain").removeClass("invisible");
+		tableInitialize("#sectionTableArea");
+	});
 });

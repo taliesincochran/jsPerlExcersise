@@ -1,3 +1,7 @@
+body {
+	background-color: blue;
+	margin-top: 50px;
+}
 .tableColumnHeader,
 .tableCell {
 	border-width: 1px;
@@ -10,20 +14,24 @@
 	font-size: 2em;
 }
 
+.invisible {
+	display: none;
+}
+
 main {
 	background-color: aliceblue;
 	padding: 20px;
 }
-.middle {
-	background-color: beige;
-	height: 500px;
-}
-.invisible {
-	display: none;
+section {
+	background-color: aquamarine;
+	padding: 20px;
 }
 header {
 	background-color: beige;
+	text-align: center;
 }
-.seperator {
-	height: 20px;
+footer {
+	background-color: black;
+	color: white;
+	text-align: center;
 }
