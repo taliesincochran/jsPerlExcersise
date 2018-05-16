@@ -1,0 +1,29 @@
+.tableColumnHeader,
+.tableCell {
+	border-width: 1px;
+	border-color: black; 
+	border-style: solid;
+	text-align: center;
+	font-family: Georgia, Times, Times New Roman, serif;
+}
+.tableColumnHeader {
+	font-size: 2em;
+}
+
+main {
+	background-color: aliceblue;
+	padding: 20px;
+}
+.middle {
+	background-color: beige;
+	height: 500px;
+}
+.invisible {
+	display: none;
+}
+header {
+	background-color: beige;
+}
+.seperator {
+	height: 20px;
+}

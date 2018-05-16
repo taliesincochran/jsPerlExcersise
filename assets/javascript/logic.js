@@ -40,17 +40,32 @@ $(document).ready(function() {
 	    } 
 	];
 	var tableInMain = true;
-	function tableInitialize () {
-		var companionTable = $("<table style='width:100%'>")
+	function tableInitialize (element) {
+		var companionTable = $("<table style='width:100%'>");
 		var tableHeader= $("<tr>");
-		for (var key in companions[0]) {
-			var columnHeader = $("<th>");
-			columnHeader.html(key)
-				.appendTo(tableHeader);
-		}
+		var firstName = $("<th>")
+		firstName.text("First Name").addClass('tableColumnHeader').appendTo(tableHeader);
+		var lastName = $("<th>");
+		lastName.text("Last Name").addClass('tableColumnHeader').appendTo(tableHeader);
+		var home = $("<th>")
+		home.text("Home").addClass('tableColumnHeader').appendTo(tableHeader);
 		tableHeader.appendTo(companionTable);
-		companionTable.appendTo("#main");
+		companionTable.appendTo(element);
+		companions.forEach(function(companion) {
+			var first_name = companion.first_name;
+			var last_name = companion.last_name;
+			var home = companion.home;
+			var tableRow = $("<tr>");
+			var firstNameCell = $("<td>");
+			firstNameCell.text(companion.first_name).addClass('tableCell').appendTo(tableRow);
+			var lastNameCell =$("<td>");
+			lastNameCell.text(companion.last_name).addClass('tableCell').appendTo(tableRow);
+			var home = $("<td>");
+			home.text(companion.home).addClass('tableCell').appendTo(tableRow);
+			tableRow.appendTo(companionTable);
+		})
 
 	}
-	tableInitialize();
+	tableInitialize("#mainTableArea");
+
 });
