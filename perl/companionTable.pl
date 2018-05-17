@@ -10,7 +10,7 @@ my $dbh = DBI-> connect(
 		RaiseError => 1, 
 		AutoCommit => 0
 	}
-) or die "Could not connect to database: " . DBI->errstr; 
+) or die "Could not connect to database, it must be the Cyberman... or maybe this: " . DBI->errstr; 
 #If the program runs more than one time, this drops the companion table to avoid errors.
 $dbh -> do("DROP TABLE IF EXISTS companions");
 
@@ -18,9 +18,9 @@ $dbh -> do("DROP TABLE IF EXISTS companions");
 my $createTableStatement = qq(
 	CREATE TABLE companions (
 		id   INTEGER PRIMARY KEY AUTOINCREMENT,
-		first_name    CHAR(100) NOT NULL,
-		last_name    CHAR(100),
-		home CHAR(100)   NOT NULL
+		first_name CHAR(100) NOT NULL,
+		last_name  CHAR(100),
+		home       CHAR(100) NOT NULL
 	);
 );
 my $rv = $dbh->do($createTableStatement);
@@ -45,7 +45,7 @@ if ($rv<0) {print DBI->errst;}
 
 #Now query the data base
 my $selectStatement = qq(SELECT * FROM companions;);
-my $sth = $dbh->prepare($selectStatement) or die "Could not preform the query: " . $dbh->errst;
+my $sth = $dbh->prepare($selectStatement) or die "Could not preform the query, I blame the Daleks, but reason points to: " . $dbh->errst;
 $rv = $sth->execute() or die "Could not execute the query: " . $dbh->errstr;
 #And behold the glorious table...
 print "--------------------------------------------\n";

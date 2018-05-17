@@ -39,9 +39,8 @@ $(document).ready(function() {
 	        home       : 'Gallifrey'
 	    } 
 	];
-	var tableInMain = true;
+	//This function initializes the table on the DOM element refered to in the parameter
 	function tableInitialize (element) {
-		console.log('table initialize called on ', element);
 		var companionTable = $("<table style='width:100%'>");
 		var tableHeader= $("<tr>");
 		var firstName = $("<th>")
@@ -67,13 +66,14 @@ $(document).ready(function() {
 		companionTable.appendTo(element);
 
 	}
-	tableInitialize("#mainTableArea");
+	//This click handler moves the table to the upper area
 	$("#btnMain").on("click", function() {
 		$("#sectionTableArea").empty();
 		$("#btnSection").removeClass("invisible");
 		$("#btnMain").addClass("invisible");
 		tableInitialize("#mainTableArea")
 	});
+	//This click handler moves the table to the lower area
 	$("#btnSection").on("click", function() {
 		console.log("section button clicked")
 		$("#mainTableArea").empty();
@@ -81,4 +81,6 @@ $(document).ready(function() {
 		$("#btnMain").removeClass("invisible");
 		tableInitialize("#sectionTableArea");
 	});
+	//Sets the initial placement of the table to the upper area
+	tableInitialize("#mainTableArea");
 });
